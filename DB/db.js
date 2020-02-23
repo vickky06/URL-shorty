@@ -6,7 +6,7 @@ const moongoose = require("mongoose");
 
 const connectDB = async()=>{
     try{
-        await moongoose.connect(process.env.MONGOURI,{
+        await moongoose.connect("mongodb+srv://mongoDB:qwerty123@cluster0-csyxa.mongodb.net/test?retryWrites=true&w=majority",{
             useCreateIndex: true,
             useNewUrlParser :true,
             useUnifiedTopology: true
