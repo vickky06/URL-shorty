@@ -30,6 +30,6 @@ router.get('/:code',  async (req, res) => {
             error: err
         })
     }
-})
+});
 
 module.exports = router;

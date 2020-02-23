@@ -40,7 +40,7 @@ app.set('view engine', 'hbs'); ///Handle Bars
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////Define Routes
-app.use('/', require('./routes/index'));
+app.use('/', require('./routes/getURL'));
 app.use('/api/url', require('./routes/url'));
 app.use('/api/url/custom', require('./routes/customUrl')); //////repari required
 app.use('/api/url/', require('./routes/login')); ///admin Login
