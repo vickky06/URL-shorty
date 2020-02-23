@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+   </head>
+   <body>
+      <canvas id="chart" height="10" width="10" style="border:1px solid #000000";></canvas>
+      <script>
+         var ctx = document.getElementById('chart').getContext('2d');
+         let xrange = '{{value.xValue}}',yrange = '{{value.yValue}}'
+         console.log(xrange,yrange)
+         let myChart = new Chart(ctx, {
+         type: 'bar',
+         data: {
+          labels: yrange,
+          datasets: [{
+              label: '# of URLs shortened in between {{value.startTime}} and {{value.endTime}}',
+              data: xrange,
+              backgroundColor:
+                  'rgba(255, 99, 132, 0.2)',
+                 
+              borderColor: 
+                  'rgba(255, 99, 132, 1)',
+                  
+              borderWidth: 1
+          }]
+         },
+         options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }]
+          }
+         }
+         });
+      </script>
+      <h1>{{startTime}}</h1>
+      <h2>{{endTime}}</h2>
+   </body>
+</html>
