@@ -8,7 +8,26 @@ app.use(express.json({
     }
 
 ));
+const getURL = require('./routes/getURL'),
+    generalUrl = require('./routes/url'),
+    customURL = require('./routes/customUrl'),
+    logIN = require('./routes/login'),
+    logOUT = require('./routes/logout'),
+    signUP = require('./routes/signUp'),
+    TSP = require('./routes/adminTimeSeriesPlot');
+
+
+
 app.set('view engine', 'hbs'); ///Handle Bars
+app.use(getURL);
+app.use(generalUrl);
+app.use(customURL);
+app.use(logIN);
+app.use(logOUT);
+app.use(signUP);
+app.use(TSP);
+
+
 ////Connect to DB
 
 
@@ -40,13 +59,13 @@ app.set('view engine', 'hbs'); ///Handle Bars
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ////Define Routes
-app.use('/', require('./routes/getURL'));
-app.use('/api/url', require('./routes/url'));
-app.use('/api/url/custom', require('./routes/customUrl')); //////repari required
-app.use('/api/url/', require('./routes/login')); ///admin Login
-app.use('/api/url/', require('./routes/signUp')); //signUP
-app.use('/api/url/', require('./routes/logout'));  ///Logout
-app.use('/api/url/', require('./routes/adminTimeSeriesPlot'));  
+// app.use('/', require('./routes/getURL'));
+// app.use('/api/url', require('./routes/url'));
+// app.use('/api/url/custom', require('./routes/customUrl')); //////repari required
+// app.use('/api/url/', require('./routes/login')); ///admin Login
+// app.use('/api/url/', require('./routes/signUp')); //signUP
+// app.use('/api/url/', require('./routes/logout'));  ///Logout
+// app.use('/api/url/', require('./routes/adminTimeSeriesPlot'));  
 
 
 //const PORT = config.get('port');

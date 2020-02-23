@@ -1,14 +1,13 @@
 //ShortURL
 const express = require('express');
-const router = express.Router();
-const memory_cache = require('../middleware/memory-cache'); ///client side
-const file_cache = require('../middleware/flat-cache'); ///server side
-
+const router = new express.Router();
+router.use(express.json())
 const Url = require('../models/Url');
 
 //@route GET /:code
 //@desc Redirect to long/original URL
-
+try
+{
 router.get('/:code',  async (req, res) => {
     console.log("code : ", req.params.code)
     try {
@@ -31,5 +30,10 @@ router.get('/:code',  async (req, res) => {
         })
     }
 });
+
+}
+catch(error){
+console.log("error occured.");
+}
 
 module.exports = router;
