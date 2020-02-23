@@ -9,7 +9,7 @@ const Url = require('../models/Url');
 //@route GET /:code
 //@desc Redirect to long/original URL
 
-router.get('/:code', file_cache, async (req, res) => {
+router.get('/:code',  async (req, res) => {
     console.log("code : ", req.params.code)
     try {
         const url = await Url.findOne({
