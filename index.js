@@ -50,7 +50,7 @@ app.use('/api/url/', require('./routes/adminTimeSeriesPlot'));
 
 
 //const PORT = config.get('port');
-const PORT = process.env.PORT;
+const PORT = process.env.PORT||5000;
 //console.log(process.env.BASE_URL)
 
 app.listen(PORT, () => console.log(`****************SERVER UP@!!${PORT}************************`)); 
