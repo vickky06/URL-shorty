@@ -19,6 +19,7 @@ const getURL = require('./routes/getURL'),
 
 
 app.set('view engine', 'hbs'); ///Handle Bars
+////Define Routes
 app.use(getURL);
 app.use(generalUrl);
 app.use(customURL);
@@ -58,18 +59,7 @@ app.use(TSP);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////Define Routes
-// app.use('/', require('./routes/getURL'));
-// app.use('/api/url', require('./routes/url'));
-// app.use('/api/url/custom', require('./routes/customUrl')); //////repari required
-// app.use('/api/url/', require('./routes/login')); ///admin Login
-// app.use('/api/url/', require('./routes/signUp')); //signUP
-// app.use('/api/url/', require('./routes/logout'));  ///Logout
-// app.use('/api/url/', require('./routes/adminTimeSeriesPlot'));  
-
-
-//const PORT = config.get('port');
 const PORT = process.env.PORT||5000;
-//console.log(process.env.BASE_URL)
+
 
 app.listen(PORT, () => console.log(`****************SERVER UP@!!${PORT}************************`)); 
