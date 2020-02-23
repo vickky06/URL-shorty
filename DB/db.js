@@ -1,8 +1,4 @@
 const moongoose = require("mongoose");
-//const config  = require('config');
-///const db =  config.get('mongoURI');
-
-///connect db
 
 const connectDB = async()=>{
     try{
@@ -13,10 +9,11 @@ const connectDB = async()=>{
         });
         console.log("****************DB connected!!**********************")
     }
-    catch{
+    catch(error){
 
         console.log("*******************DB failed to connect!!*********************");
-        process.exit(1);
+        console.log("Error as "+ error);
+        
     }
 };
 
