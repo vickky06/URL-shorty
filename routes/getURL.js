@@ -1,7 +1,7 @@
 //ShortURL
 const express = require('express');
 const router = new express.Router();
-router.use(express.json())
+router.use(express.json());
 const Url = require('../models/Url');
 
 //@route GET /:code
@@ -33,7 +33,7 @@ router.get('/:code',  async (req, res) => {
 
 }
 catch(error){
-console.log("error occured.");
+console.log("error occured.",error);
 }
 
 module.exports = router;

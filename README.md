@@ -12,7 +12,7 @@ KEY FEATURES:
 • LOGIN - LOGOUT functionality for Admin.
 • SIGN UP functionality for Admin.
 • SESSION MANAGEMENT functionality to handle multiple sessions.
-• Cache management for both client and server side.
+
 2
 Vivek Singh
 Version :01
@@ -26,7 +26,7 @@ URLS extension and USAGE (APIs):
 • General User
 /shorten (POST) : (BODY){“longUrl” : “somrandomURLtoBE/shortened.123”}
 i) generates and return a detail of newly shortened URL.
-/custom/customUrl (POST) : (BODY) {"longUrl" :"someLongRandomURL" , "customTag" :"myTag"}
+/customUrl (POST) : (BODY) {"longUrl" :"someLongRandomURL" , "customTag" :"myTag"}
 i) generates and return a detail of newly shortened URL with the provided custom Tag. 
 {{shortened URL}} (GET) :
 i) Redirects to a the actual URL page , provided the URL is valid and existing.

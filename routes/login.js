@@ -1,13 +1,13 @@
 const express = require('express');
-const router = express.Router();
+const router = new express.Router();
+router.use(express.json());
 
 const User = require('../models/adminUser');
 
 //@router :post ->/api/login
 //description : login the user
 router.post('/login',async (req,res)=>
-    {
-    console.log('**********************************************Login*******************************************\n')
+    {console.log('**********************************************Login*******************************************\n')
         //console.log(req.body)
             try {
                 const user = await User.findUserByCredentials(req.body.email,req.body.password);

@@ -1,6 +1,8 @@
 const express = require('express');
-const router = express.Router();
+
 const User = require('../models/adminUser');
+const router = new express.Router();
+router.use(express.json());
 
 //@router POST req->  /api/signUp
 //@description : sign up for admin
