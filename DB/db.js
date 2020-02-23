@@ -1,23 +1,31 @@
-const moongoose = require("mongoose");
-const Q = "mongodb+srv://admin:N04KbUkAqgdGE08p@cluster0-aqnpz.mongodb.net/URL-appheroku?retryWrites=true&w=majority";
-const URI = process.env.MONGOURI|| Q
-const connectDB = async()=>{
-    try{
-       console.log(URI);
-        //await moongoose.connect(process.env.MONGOURI,{
-            await moongoose.connect(URI,{
-            useCreateIndex: true,
-            useNewUrlParser :true,
-            useUnifiedTopology: true
-        });
-        console.log("****************DB connected!!**********************")
-    }
-    catch(error){
+const mongoose = require('mongoose')
 
-        console.log("*******************DB failed to connect!!*********************");
-        console.log("Error as "+ error);
-        
-    }
-};
+Promise = require('bluebird');
+mongoose.Promise = Promise;
+const serverOptions = {
+    poolsize:100 ,
+    socketOptions:{
+        socketTimeoutMS: 5000
+        }};
+//connect to the database, UrlParser is true, create Index for databse automaticaclly
 
-module.exports = connectDB; 
+require('mongoose').Promise = global.Promise
+
+const mongoosePort = process.env.MONGODB_URL 
+// console.log('DEV post is '+process.env.MONGODB_URL)
+//mongoose.connect('mongodb://127.0.0.1:27017/task-manager-api',{
+mongoose.connect(mongoosePort,{
+    'useNewUrlParser': true,
+    'useFindAndModify':false,
+    'useCreateIndex': true,
+    'useUnifiedTopology': true,
+   // server: serverOptions
+}).then(()=>{
+
+    console.log('successfull connection established for '+process.env.MONGODB_URL)
+
+}).catch(error => {
+    console.log('an error occured while establishing connection . ERROR : '+error.message)
+});
+
+console.log("Connected")

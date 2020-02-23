@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 //const config = require('config');
-const connectDB = require('./DB/db');
+require('./DB/db');
 //const URL = require('./models/Url')
 app.use(express.json({
         extended: false,
@@ -10,7 +10,7 @@ app.use(express.json({
 ));
 app.set('view engine', 'hbs'); ///Handle Bars
 ////Connect to DB
-connectDB();
+
 
 // // //testing ///////////////////////////////////////////////////////////////////////////////////
 

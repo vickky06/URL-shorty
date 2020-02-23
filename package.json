@@ -4,6 +4,7 @@
   "description": "A simple URL shortener built with Node.js and MongoDB",
   "dependencies": {
     "bcrypt": "^3.0.8",
+    "bluebird": "^3.7.2",
     "chart.js": "^2.9.3",
     "config": "^3.2.5",
     "express": "^4.17.1",
