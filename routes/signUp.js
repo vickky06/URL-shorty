@@ -33,7 +33,7 @@ router.post('/signup',async (req,res)=>{
 }
 catch (e){
     //onsole.log(' catch Block Found')
-            res.status(400).send(e)
+            res.status(400).send({e})
         }
     
 

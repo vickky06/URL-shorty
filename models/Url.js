@@ -20,14 +20,6 @@ const urlSchema = new mongoose.Schema({
     }
 })
 
-///deletion of unnecessary details
-urlSchema.methods.toJSON = function(){
-    const URL =this
-    const urlObj = URL.toObject()
-    
-    delete urlObj.urlCode
-    delete urlObj.date
-    return urlObj;
-}
+
 
 module.exports = mongoose.model('Url', urlSchema);

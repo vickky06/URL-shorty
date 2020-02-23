@@ -66,22 +66,12 @@ userSchema.statics.findUserByCredentials = async (email, password) => {
     return user
 };
 
-///toJSON
-userSchema.methods.toJSON = function() {
-    const user = this
-    const userObj = user.toObject()
 
-    delete userObj.password
-    delete userObj.tokens
-    delete userObj.avatar
-
-    return userObj
-};
 
 //Token generation
 userSchema.methods.generateAuthToken = async function() {
     const user = this
-    const JWT_TOKEN = config.get('jwt_token');
+    const JWT_TOKEN = process.env.JWT_TOKEN;
     console.log('WE ARE HERE ' + JWT_TOKEN);
     const token = jwt.sign({
         _id: user._id.toString()
